@@ -18,7 +18,7 @@ public class Main {
                 jsonRequest = readRequestBody();
             } catch (IOException e) {
                 String errorResponse = """
-                        HTTP/1.1 403 Forbidden Request
+                        HTTP/1.1 400 Bad Request
 
                         %s
                         """.formatted(e.getMessage());

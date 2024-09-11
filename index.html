@@ -1,32 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web1</title>
+    <title>Веб 1</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             background-color: #f0f0f0;
             color: #333;
+            margin: 0;
+            padding: 0;
         }
 
         .header {
             background-color: #4CAF50;
             padding: 20px;
             color: white;
+            text-align: center;
+            font-family: cursive;
         }
 
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .name {
-            font-size: 1.2em;
-            font-weight: bold;
+        .header .name {
+            font-size: 1.5em;
+            color: white;
+            margin-top: 10px;
         }
 
         main {
@@ -35,6 +34,9 @@
             background-color: white;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
         }
 
         .form-container {
@@ -44,17 +46,9 @@
 
         .form-group {
             margin-bottom: 20px;
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
         }
 
-        .choose-element {
-            display: inline-block;
-            margin-right: 20px;
-        }
-
-        label {
+        .form-group label {
             font-weight: bold;
             margin-bottom: 5px;
             display: block;
@@ -63,8 +57,10 @@
         input[type="text"] {
             width: 100%;
             padding: 10px;
+            margin-bottom: 10px;
             border-radius: 5px;
             border: 1px solid #ccc;
+            box-sizing: border-box;
         }
 
         input[type="radio"],
@@ -85,11 +81,12 @@
             background-color: #45a049;
         }
 
-        #img {
-            width: 300px;
-            margin: 0 auto;
+        button:disabled {
+            background-color: #9fd9a2;
+            cursor: default;
         }
 
+        /* Стили для таблицы */
         .table-container {
             margin: 50px auto;
             width: 80%;
@@ -121,104 +118,96 @@
         tr:hover {
             background-color: #f1f1f1;
         }
+
+        #img {
+            width: 300px;
+            display: block;
+            margin: 0 auto;
+        }
     </style>
 </head>
 
 <body>
     <header class="header">
-        <div class="header-content">
-            <h1>Веб</h1>
-            <div class="name">
-                Сидимеков Дмитрий<br>409553<br>P3222
-            </div>
-        </div>
+        <h1>Веб 1</h1>
+        <div class="name">Сидимеков Дмитрий<br>ИСУ 409553<br>P3222</div>
     </header>
 
     <main>
         <div class="form-container">
             <img src="axes.png" id="img">
-            <!-- <form id="myForm" action="http://helios.cs.ifmo.ru:28180/" method="POST"> -->
             <form id="myForm">
                 <label>Выберите координату X:</label>
                 <div class="form-group">
-                    <div class="choose-element">
-                        <input type="radio" id="x_-2" name="x" value="-2">
-                        <label for="x_-2">-2.0</label>
-                    </div>
+                    <label>
+                        <input type="radio" name="x" value="-2"> -2.0
+                    </label>
 
-                    <div class="choose-element" class="choose-element">
-                        <input type="radio" id="x_-1.5" name="x" value="-1.5">
-                        <label for="x_-1.5">-1.5</label>
-                    </div>
+                    <label>
+                        <input type="radio" name="x" value="-1.5"> -1.5
+                    </label>
 
-                    <div class="choose-element" class="choose-element">
-                        <input type="radio" id="x_-1" name="x" value="-1">
-                        <label for="x_-1">-1.0</label>
-                    </div>
+                    <label>
+                        <input type="radio" name="x" value="-1"> -1.0
+                    </label>
 
-                    <div class="choose-element">
-                        <input type="radio" id="x_-0.5" name="x" value="-0.5">
-                        <label for="x_-0.5">-0.5</label>
-                    </div>
+                    <label>
+                        <input type="radio" name="x" value="-0.5"> -0.5
+                    </label>
 
-                    <div class="choose-element">
-                        <input type="radio" id="x_0" name="x" value="0">
-                        <label for="x_0">0.0</label>
-                    </div>
+                    <label>
+                        <input type="radio" name="x" value="0"> 0.0
+                    </label>
 
-                    <div class="choose-element">
-                        <input type="radio" id="x_0.5" name="x" value="0.5">
-                        <label for="x_0.5">0.5</label>
-                    </div>
+                    <label>
+                        <input type="radio" name="x" value="0.5"> 0.5
+                    </label>
 
-                    <div class="choose-element">
-                        <input type="radio" id="x_1" name="x" value="1">
-                        <label for="x_1">1.0</label>
-                    </div>
+                    <label>
+                        <input type="radio" name="x" value="1"> 1.0
+                    </label>
 
-                    <div class="choose-element">
-                        <input type="radio" id="x_1.5" name="x" value="1.5">
-                        <label for="x_1.5">1.5</label>
-                    </div>
+                    <label>
+                        <input type="radio" name="x" value="1.5"> 1.5
+                    </label>
 
-                    <div class="choose-element">
-                        <input type="radio" id="x_2" name="x" value="2">
-                        <label for="x_2">2.0</label>
-                    </div>
+                    <label>
+                        <input type="radio" name="x" value="2"> 2.0
+                    </label>
                 </div>
 
                 <label for="text-input">Введите координату Y (-5 до 5):</label>
                 <div class="form-group">
-                    <input type="text" id="text-input" name="y" required>
+                    <input type="text" id="y-input" name="y" required>
                 </div>
 
                 <label>Выберите параметр R:</label>
                 <div class="form-group">
-                    <div class="choose-element">
-                        <input type="checkbox" id="checkbox1" name="r" value="1">
-                        <label for="checkbox1">1</label>
-                    </div>
-                    <div class="choose-element">
-                        <input type="checkbox" id="checkbox2" name="r" value="2">
-                        <label for="checkbox2">2</label>
-                    </div>
-                    <div class="choose-element">
-                        <input type="checkbox" id="checkbox3" name="r" value="3">
-                        <label for="checkbox3">3</label>
-                    </div>
-                    <div class="choose-element">
-                        <input type="checkbox" id="checkbox4" name="r" value="4">
-                        <label for="checkbox4">4</label>
-                    </div>
-                    <div class="choose-element">
-                        <input type="checkbox" id="checkbox5" name="r" value="5">
-                        <label for="checkbox5">5</label>
-                    </div>
+                    <label>
+                        <input type="checkbox" name="r" value="1"> 1
+                    </label>
+
+                    <label>
+                        <input type="checkbox" name="r" value="2"> 2
+                    </label>
+
+                    <label>
+                        <input type="checkbox" name="r" value="3"> 3
+                    </label>
+
+                    <label>
+                        <input type="checkbox" name="r" value="4"> 4
+                    </label>
+
+                    <label>
+                        <input type="checkbox" name="r" value="5"> 5
+                    </label>
                 </div>
 
-                <button type="submit">Отправить</button>
+                <button type="submit" id="submitForm" disabled>Отправить</button>
             </form>
         </div>
+
         <div class="table-container">
             <table id="resultTable">
                 <thead>
@@ -231,68 +220,70 @@
                         <th>Время выполнения</th>
                     </tr>
                 </thead>
-                <tbody>
-                </tbody>
+                <tbody></tbody>
             </table>
         </div>
     </main>
+
     <script>
-        const textInput = document.getElementById("text-input");
+        const textInput = document.getElementById("y-input");
+        const radioInputs = document.getElementsByName("x");
         const checkboxInputs = document.getElementsByName("r");
+        const submitForm = document.getElementById("submitForm");
 
         function checkOnlyOne(checkbox) {
             checkboxInputs.forEach((item) => {
                 if (item !== checkbox) item.checked = false;
             });
         }
-
         checkboxInputs.forEach(function (checkbox) {
             checkbox.addEventListener("click", function () {
                 checkOnlyOne(checkbox);
             });
         });
 
-        textInput.addEventListener("input", function () {
-            const value = parseFloat(this.value);
-            if (isNaN(value) || value < -5 || value > 5) {
-                this.setCustomValidity("Введите число в диапазоне от -5 до 5.");
-            } else {
-                this.setCustomValidity("");
+        function checkY() {
+            if (textInput.value.trim() != "") {
+                const yValue = parseFloat(textInput.value);
+                if (!(isNaN(yValue) || yValue < -5 || yValue > 5)) {
+                    return true;
+                }
             }
-        });
+            return false;
+        }
 
-        const form = document.getElementById("myForm");
-        form.addEventListener("submit", function (event) {
-            const yValue = parseFloat(textInput.value);
-            if (isNaN(yValue) || yValue < -5 || yValue > 5) {
-                event.preventDefault();
-                alert("Координата Y должна быть в диапазоне от -5 до 5.");
-            }
-        });
+        function updateSubmit() {
+            const xSelected = Array.from(radioInputs).some(input => input.checked);
+            const rSelected = Array.from(checkboxInputs).some(input => input.checked);
+            const yFilled = checkY();
+
+            submitForm.disabled = (xSelected && yFilled && rSelected) ? false : true;
+        }
+        radioInputs.forEach(input => input.addEventListener("change", updateSubmit));
+        textInput.addEventListener("input", updateSubmit);
+        checkboxInputs.forEach(input => input.addEventListener("change", updateSubmit));
+
+
         document.getElementById('myForm').addEventListener('submit', function (event) {
             event.preventDefault();
 
             const formData = new FormData(this);
-
             var object = {};
             formData.forEach(function (value, key) {
                 object[key] = value;
             });
             var jsonData = JSON.stringify(object);
 
-            // console.log(JSON.stringify(Object.fromEntries(formData)));
-
             fetch('http://localhost:8080/fcgi-bin/FastCGI.jar', {
+                mode: 'no-cors',
                 method: 'POST',
                 body: jsonData
             })
                 .then(response => response.json())
                 .then(data => {
-                    console.log('Ответ от сервера:', data);
                     addRowToTable(data);
                 })
                 .catch(error => {
-                    console.error('Ошибка:', error);
                     alert('Ошибка отправки данных.');
                 });
         });
