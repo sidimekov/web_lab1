@@ -25,6 +25,8 @@ public class Response {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         response.currentTime = formatter.format(LocalDateTime.now());
         Instant execStart = Instant.now();
+        // валидация
+        // curl
         response.in = Calculator.calculatePoint(x, y, r);
         Instant execEnd = Instant.now();
         response.execTime = (float) (Duration.between(execStart, execEnd).toNanos() / Math.pow(10, 9));
