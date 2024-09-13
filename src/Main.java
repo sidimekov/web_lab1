@@ -1,6 +1,8 @@
 import com.fastcgi.FCGIInterface;
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
+import exception.InvalidParametersException;
+import network.Request;
+import network.Response;
 
 import java.io.IOException;
 import java.nio.ByteBuffer;
@@ -14,15 +16,13 @@ public class Main {
         while (fcgiInterface.FCGIaccept() >= 0) {
 
             String jsonRequest;
+            String httpResponse;
+
             try {
                 jsonRequest = readRequestBody();
             } catch (IOException e) {
-                String errorResponse = """
-                        HTTP/1.1 400 Bad Request
-
-                        %s
-                        """.formatted(e.getMessage());
-                System.out.println(errorResponse);
+                httpResponse = Response.httpResponse("400 Bad request", e.getMessage());
+                System.out.println(httpResponse);
                 continue;
             }
 
@@ -30,11 +30,18 @@ public class Main {
 
             Request request = gson.fromJson(jsonRequest, Request.class);
 
-            Response response = Response.handleRequest(request);
+            Response response;
+            try {
+                response = Response.handleRequest(request);
+            } catch (InvalidParametersException e) {
+                httpResponse = Response.httpResponse("400 Bad request", "{\"response\": \"%s\"}".formatted(e.getMessage()));
+                System.out.println(httpResponse);
+                continue;
+            }
 
             String jsonResponse = gson.toJson(response, Response.class);
 
-            String httpResponse = """
+            httpResponse = """
                     HTTP/1.1 200 OK
                     Content-Type: application/json
 

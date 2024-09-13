@@ -7,36 +7,32 @@
     <title>Веб 1</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-            color: #333;
-            margin: 0;
-            padding: 0;
+            /* background-color: #f9f9f9; */
+            background-color: white;
+            font-family: Arial;
         }
 
         .header {
             background-color: #4CAF50;
-            padding: 20px;
+            padding: 10px;
             color: white;
             text-align: center;
             font-family: cursive;
+            min-width: 500px;
         }
 
         .header .name {
-            font-size: 1.5em;
+            font-size: 24px;
             color: white;
             margin-top: 10px;
         }
 
         main {
-            margin: 20px;
-            padding: 20px;
+            margin: 20px 0;
+            padding: 20px 0;
             background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 20px;
+            /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+            min-width: 100px;
         }
 
         .form-container {
@@ -51,7 +47,6 @@
         .form-group label {
             font-weight: bold;
             margin-bottom: 5px;
-            display: block;
         }
 
         input[type="text"] {
@@ -86,7 +81,6 @@
             cursor: default;
         }
 
-        /* Стили для таблицы */
         .table-container {
             margin: 50px auto;
             width: 80%;
@@ -109,10 +103,6 @@
         th {
             background-color: #4CAF50;
             color: white;
-        }
-
-        tr:nth-child(even) {
-            background-color: #f9f9f9;
         }
 
         tr:hover {
@@ -178,7 +168,7 @@
 
                 <label for="text-input">Введите координату Y (-5 до 5):</label>
                 <div class="form-group">
-                    <input type="text" id="y-input" name="y" required>
+                    <input type="text" id="y-input" name="y" maxlength="17" required>
                 </div>
 
                 <label>Выберите параметр R:</label>
@@ -245,7 +235,9 @@
         function checkY() {
             if (textInput.value.trim() != "") {
                 const yValue = parseFloat(textInput.value);
-                if (!(isNaN(yValue) || yValue < -5 || yValue > 5)) {
+                // console.log(textInput.value, yValue)
+                // console.log((yValue != textInput.value))
+                if (!(isNaN(yValue) || yValue < -5 || yValue > 5 || isNaN(textInput.value))) {
                     return true;
                 }
             }

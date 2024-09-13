@@ -1,3 +1,5 @@
+package util;
+
 public class Calculator {
     public static boolean calculatePoint(double x, double y, int r) {
         if (x >= 0) {

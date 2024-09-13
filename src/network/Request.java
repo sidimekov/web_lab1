@@ -1,3 +1,5 @@
+package network;
+
 public class Request {
     public double x;
     public double y;
@@ -11,7 +13,7 @@ public class Request {
 
     @Override
     public String toString() {
-        return "Request{" +
+        return "network.Request{" +
                 "x=" + x +
                 ", y=" + y +
                 ", r=" + r +
